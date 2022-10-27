@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		987B0383290AB70200471E43 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 987B0382290AB70200471E43 /* Models.scnassets */; };
 		98DABE6A2909B5C90007C17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE692909B5C90007C17E /* AppDelegate.swift */; };
 		98DABE6C2909B5C90007C17E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE6B2909B5C90007C17E /* art.scnassets */; };
 		98DABE6E2909B5C90007C17E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE6D2909B5C90007C17E /* ViewController.swift */; };
 		98DABE712909B5C90007C17E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE6F2909B5C90007C17E /* Main.storyboard */; };
 		98DABE732909B5CB0007C17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE722909B5CB0007C17E /* Assets.xcassets */; };
-		98DABE762909B5CB0007C17E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE742909B5CB0007C17E /* LaunchScreen.storyboard */; };
 		98DABE802909B5CB0007C17E /* BlinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE7F2909B5CB0007C17E /* BlinkTests.swift */; };
 		98DABE8A2909B5CB0007C17E /* BlinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE892909B5CB0007C17E /* BlinkUITests.swift */; };
 		98DABE8C2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */; };
+		98FFF4B0290AA314009CEF7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,18 +37,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		987B0382290AB70200471E43 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		98DABE662909B5C90007C17E /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE692909B5C90007C17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98DABE6B2909B5C90007C17E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		98DABE6D2909B5C90007C17E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		98DABE702909B5C90007C17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98DABE722909B5CB0007C17E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		98DABE752909B5CB0007C17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98DABE7B2909B5CB0007C17E /* BlinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE7F2909B5CB0007C17E /* BlinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkTests.swift; sourceTree = "<group>"; };
 		98DABE852909B5CB0007C17E /* BlinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE892909B5CB0007C17E /* BlinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITests.swift; sourceTree = "<group>"; };
 		98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +102,12 @@
 			children = (
 				98DABE692909B5C90007C17E /* AppDelegate.swift */,
 				98DABE6B2909B5C90007C17E /* art.scnassets */,
-				98DABE6D2909B5C90007C17E /* ViewController.swift */,
+				98FFF4B3290AA9D3009CEF7B /* Views */,
+				98FFF4B6290AA9F5009CEF7B /* Extensions */,
 				98DABE6F2909B5C90007C17E /* Main.storyboard */,
+				98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */,
 				98DABE722909B5CB0007C17E /* Assets.xcassets */,
-				98DABE742909B5CB0007C17E /* LaunchScreen.storyboard */,
+				987B0382290AB70200471E43 /* Models.scnassets */,
 			);
 			path = Blink;
 			sourceTree = "<group>";
@@ -123,6 +127,21 @@
 				98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */,
 			);
 			path = BlinkUITests;
+			sourceTree = "<group>";
+		};
+		98FFF4B3290AA9D3009CEF7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98DABE6D2909B5C90007C17E /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98FFF4B6290AA9F5009CEF7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				98DABE6C2909B5C90007C17E /* art.scnassets in Resources */,
-				98DABE762909B5CB0007C17E /* LaunchScreen.storyboard in Resources */,
+				98FFF4B0290AA314009CEF7B /* LaunchScreen.storyboard in Resources */,
 				98DABE732909B5CB0007C17E /* Assets.xcassets in Resources */,
+				987B0383290AB70200471E43 /* Models.scnassets in Resources */,
 				98DABE712909B5C90007C17E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +321,6 @@
 				98DABE702909B5C90007C17E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		98DABE742909B5CB0007C17E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				98DABE752909B5CB0007C17E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
