@@ -13,24 +13,28 @@ final class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var contentNode: SCNReferenceNode?
+    lazy var eyeLeftNode = contentNode?.childNode(withName: "eyeLeft", recursively: true)
+    lazy var eyeRightNode = contentNode?.childNode(withName: "eyeRight", recursively: true)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSceneView()
         debugPrint(ARFaceTrackingConfiguration.isSupported)
-        sceneView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.resetTracking()
+        resetTracking()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        sceneView.session.pause()
     }
 }
 
@@ -39,13 +43,28 @@ extension ViewController: ARSCNViewDelegate{
         let resourceName = "robotHead"
         guard anchor is ARFaceAnchor,
               let url = Bundle.main.url(forResource: resourceName, withExtension: "scn", subdirectory: "Models.scnassets") else { return nil }
-        let contentNode = SCNReferenceNode(url: url)
+        contentNode = SCNReferenceNode(url: url)
         contentNode?.load()
         return contentNode
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        let blendShapes = faceAnchor.blendShapes
+        if let eyeBlinkLeft = blendShapes[.eyeBlinkLeft] as? Float,
+           let eyeBlinkRight = blendShapes[.eyeBlinkRight] as? Float {
+            eyeLeftNode?.scale.z = 1 - eyeBlinkLeft
+            eyeRightNode?.scale.z = 1 - eyeBlinkRight
+        }
     }
 }
 
 extension ViewController {
+    
+    private func setupSceneView() {
+        sceneView.delegate = self
+    }
+    
     private func resetTracking() {
         let configuration = ARFaceTrackingConfiguration()
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])

@@ -16,7 +16,6 @@
 		98DABE802909B5CB0007C17E /* BlinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE7F2909B5CB0007C17E /* BlinkTests.swift */; };
 		98DABE8A2909B5CB0007C17E /* BlinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE892909B5CB0007C17E /* BlinkUITests.swift */; };
 		98DABE8C2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */; };
-		98FFF4B0290AA314009CEF7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +48,6 @@
 		98DABE852909B5CB0007C17E /* BlinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE892909B5CB0007C17E /* BlinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITests.swift; sourceTree = "<group>"; };
 		98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 				98FFF4B3290AA9D3009CEF7B /* Views */,
 				98FFF4B6290AA9F5009CEF7B /* Extensions */,
 				98DABE6F2909B5C90007C17E /* Main.storyboard */,
-				98FFF4AF290AA314009CEF7B /* LaunchScreen.storyboard */,
 				98DABE722909B5CB0007C17E /* Assets.xcassets */,
 				987B0382290AB70200471E43 /* Models.scnassets */,
 			);
@@ -249,7 +246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				98DABE6C2909B5C90007C17E /* art.scnassets in Resources */,
-				98FFF4B0290AA314009CEF7B /* LaunchScreen.storyboard in Resources */,
 				98DABE732909B5CB0007C17E /* Assets.xcassets in Resources */,
 				987B0383290AB70200471E43 /* Models.scnassets in Resources */,
 				98DABE712909B5C90007C17E /* Main.storyboard in Resources */,
