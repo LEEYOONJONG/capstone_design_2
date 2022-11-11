@@ -8,6 +8,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation
 
 final class ViewController: UIViewController {
 
@@ -17,7 +18,8 @@ final class ViewController: UIViewController {
     lazy var eyeLeftNode = contentNode?.childNode(withName: "eyeLeft", recursively: true)
     lazy var eyeRightNode = contentNode?.childNode(withName: "eyeRight", recursively: true)
     var blinked: Bool = false
-    var cnt:Int = 1
+    var cnt:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSceneView()
@@ -26,6 +28,7 @@ final class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(periodicCheck), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +39,15 @@ final class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    @objc private func periodicCheck() {
+        print("주기적")
+        if cnt <= 10 {
+            AudioServicesPlaySystemSound(1016)
+            print("1분에 \(cnt)번 깜빡여서 위헙합니다!")
+        }
+        cnt = 0
     }
 }
 
@@ -65,8 +77,8 @@ extension ViewController: ARSCNViewDelegate{
     
     private func blinkProcess(eyeBlinkLeft: Float, eyeBlinkRight: Float) {
         if eyeBlinkLeft > 0.8 && eyeBlinkRight > 0.8 && !blinked {
-            print("\(cnt)번 감았음")
             cnt += 1
+            print("\(cnt)번 감았음")
             blinked = true
             // 1초에 한번씩만 눈깜빡임 인식
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
