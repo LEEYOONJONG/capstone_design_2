@@ -15,8 +15,6 @@ final class ViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     
     var contentNode: SCNReferenceNode?
-    lazy var eyeLeftNode = contentNode?.childNode(withName: "eyeLeft", recursively: true)
-    lazy var eyeRightNode = contentNode?.childNode(withName: "eyeRight", recursively: true)
     var blinked: Bool = false
     var cnt:Int = 0
     
@@ -28,6 +26,7 @@ final class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        cnt = 0
         Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(periodicCheck), userInfo: nil, repeats: true)
     }
     
@@ -53,23 +52,19 @@ final class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let resourceName = "robotHead"
-        guard anchor is ARFaceAnchor,
-              let url = Bundle.main.url(forResource: resourceName, withExtension: "scn", subdirectory: "Models.scnassets") else { return nil }
-        contentNode = SCNReferenceNode(url: url)
-        contentNode?.load()
-        return contentNode
+        let faceMesh = ARSCNFaceGeometry(device: sceneView.device!)
+        let node = SCNNode(geometry: faceMesh)
+        node.geometry?.firstMaterial?.fillMode = .lines
+        return node
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        guard let faceAnchor = anchor as? ARFaceAnchor,
+        let faceGeometry = node.geometry as? ARSCNFaceGeometry else { return }
+        faceGeometry.update(from: faceAnchor.geometry)
         let blendShapes = faceAnchor.blendShapes
         if let eyeBlinkLeft = blendShapes[.eyeBlinkLeft] as? Float,
            let eyeBlinkRight = blendShapes[.eyeBlinkRight] as? Float {
-            // scale : 1이면 눈 뜬 모양, 0이면 감은 모양
-            eyeLeftNode?.scale.z = 1 - eyeBlinkLeft
-            eyeRightNode?.scale.z = 1 - eyeBlinkRight
-            
             blinkProcess(eyeBlinkLeft: eyeBlinkLeft, eyeBlinkRight: eyeBlinkRight)
             
         }
