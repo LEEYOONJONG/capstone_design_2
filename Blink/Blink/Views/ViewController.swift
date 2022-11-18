@@ -32,6 +32,7 @@ final class ViewController: UIViewController {
         setButtonState()
         setButtonLayout()
         setGradientView()
+        requestAuthNotification()
         debugPrint("지원 여부", ARFaceTrackingConfiguration.isSupported)
     }
     
@@ -113,7 +114,9 @@ extension ViewController {
 #endif
         if cnt <= 6 {
             AudioServicesPlaySystemSound(1016)
-        } else if cnt <= 12 {
+            requestSendNotification(blinkCount: cnt, notifyString: "🚨 위험합니다!")
+        } else if cnt < 12 {
+            requestSendNotification(blinkCount: cnt, notifyString: "조심하세요!")
         }
         cnt = 0
     }
@@ -188,4 +191,28 @@ extension ViewController {
         gradientView.setGradient(color1: .clear, color2: .black)
     }
     
+    // 사용자에게 알림 권한 요청
+    func requestAuthNotification() {
+        let notiAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .sound])
+        userNotificationCenter.requestAuthorization(options: notiAuthOptions) { (success, error) in
+            if let error = error {
+                print(#function, error)
+            }
+        }
+    }
+    
+    // 알림 전송
+    func requestSendNotification(blinkCount: Int, notifyString: String) {
+        let notiContent = UNMutableNotificationContent()
+        notiContent.title = "\(blinkCount)번 깜빡임"
+        notiContent.body = notifyString
+        
+        let request = UNNotificationRequest(
+            identifier: "BlinkNotification",
+            content: notiContent,
+            trigger: nil
+        )
+        
+        userNotificationCenter.add(request)
+    }
 }
