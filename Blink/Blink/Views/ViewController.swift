@@ -119,6 +119,8 @@ extension ViewController {
             requestSendNotification(blinkCount: cnt, notifyString: "조심하세요!")
         }
         cnt = 0
+        progressView.setProgress(0, animated: false)
+        blinkCountLabel.text = ""
     }
     
     private func setupSceneView() {
