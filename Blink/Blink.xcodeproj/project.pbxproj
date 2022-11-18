@@ -16,6 +16,7 @@
 		98DABE802909B5CB0007C17E /* BlinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE7F2909B5CB0007C17E /* BlinkTests.swift */; };
 		98DABE8A2909B5CB0007C17E /* BlinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE892909B5CB0007C17E /* BlinkUITests.swift */; };
 		98DABE8C2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */; };
+		98E89D5C2928068900F004EE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E89D5B2928068900F004EE /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		98DABE852909B5CB0007C17E /* BlinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE892909B5CB0007C17E /* BlinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITests.swift; sourceTree = "<group>"; };
 		98DABE8B2909B5CB0007C17E /* BlinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98E89D5B2928068900F004EE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				98DABE6F2909B5C90007C17E /* Main.storyboard */,
 				98DABE722909B5CB0007C17E /* Assets.xcassets */,
 				987B0382290AB70200471E43 /* Models.scnassets */,
+				98E89D5B2928068900F004EE /* UIView+.swift */,
 			);
 			path = Blink;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E89D5C2928068900F004EE /* UIView+.swift in Sources */,
 				98DABE6E2909B5C90007C17E /* ViewController.swift in Sources */,
 				98DABE6A2909B5C90007C17E /* AppDelegate.swift in Sources */,
 			);
