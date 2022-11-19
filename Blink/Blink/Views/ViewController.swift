@@ -17,11 +17,13 @@ final class ViewController: UIViewController {
     @IBOutlet weak var calendarButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var blinkCountLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
     
     private var contentNode: SCNReferenceNode?
     private var blinked: Bool = false
     private var cnt:Int = 0
+    private var leftSeconds: Int = 60
     private var isLighted: Bool = true
     private let userNotificationCenter = UNUserNotificationCenter.current()
     private var originalSource:Any?
@@ -39,7 +41,9 @@ final class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cnt = 0
-        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(periodicCheck), userInfo: nil, repeats: true)
+        leftSeconds = 60
+//        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(periodicCheck), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timer), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,19 +112,30 @@ extension ViewController: ARSCNViewDelegate{
 
 extension ViewController {
     
-    @objc private func periodicCheck() {
+    private func periodicCheck() {
 #if DEBUG
         debugPrint("분 초기화")
 #endif
         if cnt <= 6 {
             AudioServicesPlaySystemSound(1016)
             requestSendNotification(blinkCount: cnt, notifyString: "🚨 위험합니다!")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         } else if cnt < 12 {
             requestSendNotification(blinkCount: cnt, notifyString: "조심하세요!")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
         cnt = 0
         progressView.setProgress(0, animated: false)
         blinkCountLabel.text = ""
+    }
+    
+    @objc private func timer() {
+        leftSeconds -= 1
+        if leftSeconds < 0 {
+            leftSeconds = 60;
+            periodicCheck()
+        }
+        self.timerLabel.text = "\(leftSeconds)"
     }
     
     private func setupSceneView() {
