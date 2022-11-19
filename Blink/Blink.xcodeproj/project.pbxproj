@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98028F822929024300C595AD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98028F812929024300C595AD /* KeychainManager.swift */; };
+		98028F842929081B00C595AD /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98028F832929081B00C595AD /* UIViewController+.swift */; };
+		98028F8629290A5B00C595AD /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98028F8529290A5B00C595AD /* UserDefaultsManager.swift */; };
+		98028F88292914A900C595AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98028F87292914A900C595AD /* GoogleService-Info.plist */; };
 		984C8A3B2928D3BF00B0BFAD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */; };
 		987B0383290AB70200471E43 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 987B0382290AB70200471E43 /* Models.scnassets */; };
 		98DABE6A2909B5C90007C17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE692909B5C90007C17E /* AppDelegate.swift */; };
 		98DABE6C2909B5C90007C17E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE6B2909B5C90007C17E /* art.scnassets */; };
-		98DABE6E2909B5C90007C17E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE6D2909B5C90007C17E /* ViewController.swift */; };
+		98DABE6E2909B5C90007C17E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE6D2909B5C90007C17E /* MainViewController.swift */; };
 		98DABE712909B5C90007C17E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE6F2909B5C90007C17E /* Main.storyboard */; };
 		98DABE732909B5CB0007C17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DABE722909B5CB0007C17E /* Assets.xcassets */; };
 		98DABE802909B5CB0007C17E /* BlinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE7F2909B5CB0007C17E /* BlinkTests.swift */; };
@@ -38,12 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98028F802928DC0400C595AD /* Blink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blink.entitlements; sourceTree = "<group>"; };
+		98028F812929024300C595AD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		98028F832929081B00C595AD /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		98028F8529290A5B00C595AD /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		98028F87292914A900C595AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		987B0382290AB70200471E43 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		98DABE662909B5C90007C17E /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DABE692909B5C90007C17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98DABE6B2909B5C90007C17E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		98DABE6D2909B5C90007C17E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98DABE6D2909B5C90007C17E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		98DABE702909B5C90007C17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98DABE722909B5CB0007C17E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98DABE7B2909B5CB0007C17E /* BlinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +111,7 @@
 		98DABE682909B5C90007C17E /* Blink */ = {
 			isa = PBXGroup;
 			children = (
+				98028F802928DC0400C595AD /* Blink.entitlements */,
 				98DABE692909B5C90007C17E /* AppDelegate.swift */,
 				98DABE6B2909B5C90007C17E /* art.scnassets */,
 				98FFF4B3290AA9D3009CEF7B /* Views */,
@@ -110,6 +120,10 @@
 				98DABE722909B5CB0007C17E /* Assets.xcassets */,
 				987B0382290AB70200471E43 /* Models.scnassets */,
 				98E89D5B2928068900F004EE /* UIView+.swift */,
+				98028F832929081B00C595AD /* UIViewController+.swift */,
+				98028F812929024300C595AD /* KeychainManager.swift */,
+				98028F8529290A5B00C595AD /* UserDefaultsManager.swift */,
+				98028F87292914A900C595AD /* GoogleService-Info.plist */,
 			);
 			path = Blink;
 			sourceTree = "<group>";
@@ -134,7 +148,7 @@
 		98FFF4B3290AA9D3009CEF7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				98DABE6D2909B5C90007C17E /* ViewController.swift */,
+				98DABE6D2909B5C90007C17E /* MainViewController.swift */,
 				984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */,
 			);
 			path = Views;
@@ -253,6 +267,7 @@
 			files = (
 				98DABE6C2909B5C90007C17E /* art.scnassets in Resources */,
 				98DABE732909B5CB0007C17E /* Assets.xcassets in Resources */,
+				98028F88292914A900C595AD /* GoogleService-Info.plist in Resources */,
 				987B0383290AB70200471E43 /* Models.scnassets in Resources */,
 				98DABE712909B5C90007C17E /* Main.storyboard in Resources */,
 			);
@@ -281,8 +296,11 @@
 			files = (
 				984C8A3B2928D3BF00B0BFAD /* AuthViewController.swift in Sources */,
 				98E89D5C2928068900F004EE /* UIView+.swift in Sources */,
-				98DABE6E2909B5C90007C17E /* ViewController.swift in Sources */,
+				98028F842929081B00C595AD /* UIViewController+.swift in Sources */,
+				98028F8629290A5B00C595AD /* UserDefaultsManager.swift in Sources */,
+				98DABE6E2909B5C90007C17E /* MainViewController.swift in Sources */,
 				98DABE6A2909B5C90007C17E /* AppDelegate.swift in Sources */,
+				98028F822929024300C595AD /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Blink/Blink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PN5JFN8NYT;
@@ -479,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Blink/Blink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PN5JFN8NYT;

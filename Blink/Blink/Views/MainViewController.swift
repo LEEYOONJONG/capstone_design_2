@@ -10,7 +10,7 @@ import SceneKit
 import ARKit
 import AVFoundation
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lightButton: UIButton!
@@ -27,10 +27,11 @@ final class ViewController: UIViewController {
     private var isLighted: Bool = true
     private let userNotificationCenter = UNUserNotificationCenter.current()
     private var originalSource:Any?
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSceneView()
+        
         setButtonState()
         setButtonLayout()
         setGradientView()
@@ -40,10 +41,12 @@ final class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupSceneView()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         cnt = 0
         leftSeconds = 60
-//        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(periodicCheck), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerProcess), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +74,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ARSCNViewDelegate{
+extension MainViewController: ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let faceMesh = ARSCNFaceGeometry(device: sceneView.device!)
         let node = SCNNode(geometry: faceMesh)
@@ -97,6 +100,13 @@ extension ViewController: ARSCNViewDelegate{
             DispatchQueue.main.async {
                 self.blinkCountLabel.text = "\(self.cnt)번 깜빡임"
                 self.progressView.setProgress(Float(self.cnt)/Float(12), animated: true)
+                if self.cnt < 12 && self.cnt > 6 {
+                    self.progressView.progressTintColor = .systemYellow
+                } else if self.cnt >= 12 {
+                    self.progressView.progressTintColor = .systemMint
+                } else {
+                    self.progressView.progressTintColor = .systemRed
+                }
             }
 #if DEBUG
             debugPrint("\(cnt)번 감았음")
@@ -110,7 +120,7 @@ extension ViewController: ARSCNViewDelegate{
     }
 }
 
-extension ViewController {
+extension MainViewController {
     
     private func periodicCheck() {
 #if DEBUG
@@ -126,15 +136,17 @@ extension ViewController {
         }
         cnt = 0
         progressView.setProgress(0, animated: false)
+        progressView.progressTintColor = .systemRed
         blinkCountLabel.text = ""
     }
     
-    @objc private func timer() {
+    @objc private func timerProcess() {
         leftSeconds -= 1
         if leftSeconds < 0 {
             leftSeconds = 60;
             periodicCheck()
         }
+        
         self.timerLabel.text = "\(leftSeconds)"
     }
     
