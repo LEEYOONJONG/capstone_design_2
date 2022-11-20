@@ -12,7 +12,7 @@
         <!--Auth View Controller-->
         <scene sceneID="AVM-QN-FHa">
             <objects>
-                <viewController id="qpw-sv-LvJ" customClass="AuthViewController" customModule="Blink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="qpw-sv-LvJ" customClass="AuthViewController" customModule="Blink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OIW-rr-Kx8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,11 +98,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07q-Su-kDB">
+                                <rect key="frame" x="16" y="67" width="50" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.badge.xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="zy5-kM-oQi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1GX-On-cm7" firstAttribute="centerX" secondItem="fQZ-KI-GVf" secondAttribute="centerX" id="68i-rK-IqL"/>
+                            <constraint firstItem="07q-Su-kDB" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="20" id="6zL-5s-kZ7"/>
                             <constraint firstItem="atM-9Q-Eh6" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="50" id="7fd-LZ-z4E"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="atM-9Q-Eh6" secondAttribute="bottom" constant="110" id="Cge-s5-2PY"/>
                             <constraint firstItem="ayN-Vh-LEU" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="EAt-rr-CLV"/>
@@ -116,6 +125,7 @@
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="ayN-Vh-LEU" secondAttribute="trailing" id="ZIG-45-bsx"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="1yA-Zr-pxx" secondAttribute="trailing" constant="60" id="aHb-XZ-XfX"/>
                             <constraint firstItem="9cJ-Te-WWg" firstAttribute="leading" secondItem="XJV-EE-JSx" secondAttribute="trailing" constant="8" id="bPx-9E-k3a"/>
+                            <constraint firstItem="07q-Su-kDB" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="dxX-BX-Mcp"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="1yA-Zr-pxx" secondAttribute="bottom" constant="60" id="f6c-RB-bix"/>
                             <constraint firstItem="ayN-Vh-LEU" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="ike-TB-WXa"/>
                             <constraint firstItem="1GX-On-cm7" firstAttribute="centerY" secondItem="1yA-Zr-pxx" secondAttribute="centerY" id="qRY-oV-YQu"/>
@@ -128,6 +138,7 @@
                         <outlet property="calendarButton" destination="XJV-EE-JSx" id="vX3-Nh-0Ro"/>
                         <outlet property="gradientView" destination="ayN-Vh-LEU" id="P7q-3l-zrN"/>
                         <outlet property="lightButton" destination="9cJ-Te-WWg" id="KPW-Y0-ECU"/>
+                        <outlet property="logoutButton" destination="07q-Su-kDB" id="CGS-en-m4I"/>
                         <outlet property="progressView" destination="atM-9Q-Eh6" id="d5f-1R-9E1"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="timerLabel" destination="1yA-Zr-pxx" id="KBn-st-gMg"/>
@@ -261,6 +272,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="lightbulb.slash" catalog="system" width="96" height="128"/>
+        <image name="person.crop.circle.badge.xmark" catalog="system" width="128" height="114"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

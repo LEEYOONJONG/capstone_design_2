@@ -83,6 +83,7 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
                         UserDefaultsManager.shared.setUserDefaults(familyName+givenName, forKey: "userName")
                     }
                     guard let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
+                    
                     self.navigationController?.pushViewController(mainViewController, animated: true)
                 } else {
                     self.presentAlert(title: "토큰 저장 오류", message: "토큰을 저장할 수 없습니다.")

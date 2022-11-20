@@ -49,7 +49,7 @@ extension CalendarViewController {
         // ref.child("users").child("\(userIdentifier)").child(date).child(minute).setValue(["count": cnt])
         ref.child("users").child(userIdentifier).child(date).getData { error, snapshot in
             guard error == nil else { return }
-            let val = snapshot?.value as! [String: [String: Any]]
+            guard let val = snapshot?.value as? [String: [String: Any]] else { return }
             let sortedValue = val.sorted { $0.0 < $1.0 } // 시간 순(key)대로 정렬
             
             var timeArray:[String] = []

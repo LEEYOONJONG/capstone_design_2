@@ -65,7 +65,7 @@ final class KeychainManager {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key
         ]
-        let token = (token as AnyObject).data(using: String.Encoding.utf8.rawValue)!
+      
         let updateQuery: [String: Any] = [
             kSecValueData as String: token as Any
         ]

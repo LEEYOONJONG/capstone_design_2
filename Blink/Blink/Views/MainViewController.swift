@@ -16,6 +16,7 @@ final class MainViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var lightButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var blinkCountLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -82,6 +83,16 @@ final class MainViewController: UIViewController {
         guard let calendarViewController = storyboard?.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
         self.present(calendarViewController, animated: true)
     }
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            print("네비게이션이 없네")
+            guard let authViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthViewController") as? AuthViewController else { return }
+            changeRootViewController(authViewController)
+        }
+    }
 }
 
 extension MainViewController: ARSCNViewDelegate{
@@ -100,7 +111,6 @@ extension MainViewController: ARSCNViewDelegate{
         if let eyeBlinkLeft = blendShapes[.eyeBlinkLeft] as? Float,
            let eyeBlinkRight = blendShapes[.eyeBlinkRight] as? Float {
             blinkProcess(eyeBlinkLeft: eyeBlinkLeft, eyeBlinkRight: eyeBlinkRight)
-            
         }
     }
     
@@ -131,6 +141,15 @@ extension MainViewController: ARSCNViewDelegate{
 }
 
 extension MainViewController {
+    private func changeRootViewController(_ viewControllerToPresent: UIViewController) {
+        if let window = UIApplication.shared.windows.first {
+            window.rootViewController = UINavigationController(rootViewController: viewControllerToPresent)
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
+        } else {
+            viewControllerToPresent.modalPresentationStyle = .overFullScreen
+            self.present(viewControllerToPresent, animated: true, completion: nil)
+        }
+    }
     
     private func periodicCheck() {
 #if DEBUG
@@ -211,6 +230,19 @@ extension MainViewController {
         calendarButton.clipsToBounds = true
         calendarButton.backgroundColor = .black
         calendarButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        
+        // 로그아웃 버튼
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            logoutButton.widthAnchor.constraint(equalToConstant: 50),
+            logoutButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        logoutButton.tintColor = .systemGray
+        logoutButton.layer.cornerRadius = 25
+        logoutButton.clipsToBounds = true
+        logoutButton.backgroundColor = .black
+        logoutButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        
         
         // 전구 켜짐 여부에 따라 테두리 변경
         if !isLighted {
