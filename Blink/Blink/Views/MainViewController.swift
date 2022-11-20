@@ -34,13 +34,13 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guard let userIdentifier = KeychainManager.shared.getToken(key: "loginToken") as? String else { return }
+        print(userIdentifier)
         setButtonState()
         setButtonLayout()
         setGradientView()
         requestAuthNotification()
         ref = Database.database().reference()
-        ref.child("users").child("yoonjong").setValue(["\(Date())": 1700])
         debugPrint("지원 여부", ARFaceTrackingConfiguration.isSupported)
     }
     
@@ -131,14 +131,19 @@ extension MainViewController {
 #if DEBUG
         debugPrint("분 초기화")
 #endif
-        if cnt <= 6 {
+        if 0 < cnt {
+            sendToDatabase(cnt: cnt)
+        }
+        
+        if 0 < cnt && cnt <= 6 {
             AudioServicesPlaySystemSound(1016)
             requestSendNotification(blinkCount: cnt, notifyString: "🚨 위험합니다!")
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        } else if cnt < 12 {
+        } else if 6 < cnt && cnt < 12 {
             requestSendNotification(blinkCount: cnt, notifyString: "조심하세요!")
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
+        
         cnt = 0
         progressView.setProgress(0, animated: false)
         progressView.progressTintColor = .systemRed
@@ -248,5 +253,19 @@ extension MainViewController {
         )
         
         userNotificationCenter.add(request)
+    }
+    
+    func sendToDatabase(cnt: Int) {
+        // date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM월 dd일 HH:mm"
+        let date = dateFormatter.string(from: Date())
+        
+        // user
+        guard var userIdentifier = KeychainManager.shared.getToken(key: "loginToken") as? String else { return }
+        userIdentifier = userIdentifier.components(separatedBy: [".", "#", "$", "[", "]"]).joined()
+        
+        // db
+        ref.child("users").child("\(userIdentifier)").child(date).setValue(["count": cnt])
     }
 }
