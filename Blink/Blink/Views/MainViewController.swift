@@ -46,9 +46,9 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupSceneView()
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        setupSceneView()
         cnt = 0
         leftSeconds = 60
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerProcess), userInfo: nil, repeats: true)
@@ -76,6 +76,11 @@ final class MainViewController: UIViewController {
             isLighted = true
         }
         setButtonLayout()
+    }
+    
+    @IBAction func calendarButtonTapped(_ sender: Any) {
+        guard let calendarViewController = storyboard?.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+        self.present(calendarViewController, animated: true)
     }
 }
 
@@ -258,14 +263,19 @@ extension MainViewController {
     func sendToDatabase(cnt: Int) {
         // date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM월 dd일 HH:mm"
+        dateFormatter.dateFormat = "MM월 dd일"
         let date = dateFormatter.string(from: Date())
+        
+        // minute
+        let minuteFormatter = DateFormatter()
+        minuteFormatter.dateFormat = "HH:mm"
+        let minute = minuteFormatter.string(from: Date())
         
         // user
         guard var userIdentifier = KeychainManager.shared.getToken(key: "loginToken") as? String else { return }
         userIdentifier = userIdentifier.components(separatedBy: [".", "#", "$", "[", "]"]).joined()
         
         // db
-        ref.child("users").child("\(userIdentifier)").child(date).setValue(["count": cnt])
+        ref.child("users").child("\(userIdentifier)").child(date).child(minute).setValue(["count": cnt])
     }
 }

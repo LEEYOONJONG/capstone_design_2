@@ -14,6 +14,7 @@
 		982A3684292919A300FDC6CF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 982A3683292919A300FDC6CF /* FirebaseDatabase */; };
 		982A3687292A11AE00FDC6CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 982A3686292A11AE00FDC6CF /* FirebaseAuth */; };
 		982A3689292A11B600FDC6CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 982A3688292A11B600FDC6CF /* FirebaseFirestore */; };
+		982A368B292A505100FDC6CF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982A368A292A505100FDC6CF /* CalendarViewController.swift */; };
 		984C8A3B2928D3BF00B0BFAD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */; };
 		987B0383290AB70200471E43 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 987B0382290AB70200471E43 /* Models.scnassets */; };
 		98DABE6A2909B5C90007C17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DABE692909B5C90007C17E /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		98028F832929081B00C595AD /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		98028F8529290A5B00C595AD /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		98028F87292914A900C595AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		982A368A292A505100FDC6CF /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		987B0382290AB70200471E43 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		98DABE662909B5C90007C17E /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			children = (
 				98DABE6D2909B5C90007C17E /* MainViewController.swift */,
 				984C8A3A2928D3BF00B0BFAD /* AuthViewController.swift */,
+				982A368A292A505100FDC6CF /* CalendarViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				982A368B292A505100FDC6CF /* CalendarViewController.swift in Sources */,
 				984C8A3B2928D3BF00B0BFAD /* AuthViewController.swift in Sources */,
 				98E89D5C2928068900F004EE /* UIView+.swift in Sources */,
 				98028F842929081B00C595AD /* UIViewController+.swift in Sources */,

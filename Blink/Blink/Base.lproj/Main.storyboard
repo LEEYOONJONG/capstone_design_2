@@ -71,6 +71,9 @@
                                 <rect key="frame" x="271.66666666666669" y="66.666666666666671" width="50.666666666666686" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system"/>
+                                <connections>
+                                    <action selector="calendarButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="0Hj-77-OJb"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayN-Vh-LEU">
                                 <rect key="frame" x="0.0" y="594" width="390" height="250"/>
@@ -133,6 +136,36 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-34.123222748815166"/>
         </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="kD8-Ch-JBF">
+            <objects>
+                <viewController storyboardIdentifier="CalendarViewController" id="Nii-og-IbJ" customClass="CalendarViewController" customModule="Blink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zCs-ma-Zo0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OO님의 기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-91-Urg">
+                                <rect key="frame" x="24" y="114.99999999999999" width="218" height="50.333333333333329"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iQe-wz-E0u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5N-91-Urg" firstAttribute="leading" secondItem="iQe-wz-E0u" secondAttribute="leading" constant="24" id="I6A-OK-wff"/>
+                            <constraint firstItem="Y5N-91-Urg" firstAttribute="top" secondItem="iQe-wz-E0u" secondAttribute="top" constant="68" id="Um6-0H-hGU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="Y5N-91-Urg" id="dQi-XH-bfN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DaN-nw-QfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="-34"/>
+        </scene>
         <!--Unsupported View Controller-->
         <scene sceneID="exv-d7-euu">
             <objects>
@@ -172,7 +205,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHa-cf-JKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="-34.123222748815166"/>
+            <point key="canvasLocation" x="-623" y="622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fLK-xm-6N2">
