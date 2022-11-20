@@ -18,6 +18,9 @@ final class CalendarViewController: UIViewController {
         getData()
     }
     
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension CalendarViewController {
