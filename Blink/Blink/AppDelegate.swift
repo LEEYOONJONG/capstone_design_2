@@ -7,6 +7,9 @@
 
 import UIKit
 import ARKit
+import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
         }
+        
+        FirebaseApp.configure()
         
         return true
     }

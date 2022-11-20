@@ -9,6 +9,7 @@ import UIKit
 import SceneKit
 import ARKit
 import AVFoundation
+import FirebaseDatabase
 
 final class MainViewController: UIViewController {
     
@@ -29,6 +30,8 @@ final class MainViewController: UIViewController {
     private var originalSource:Any?
     private var timer: Timer?
     
+    private var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +39,8 @@ final class MainViewController: UIViewController {
         setButtonLayout()
         setGradientView()
         requestAuthNotification()
+        ref = Database.database().reference()
+        ref.child("users").child("yoonjong").setValue(["\(Date())": 1700])
         debugPrint("지원 여부", ARFaceTrackingConfiguration.isSupported)
     }
     
