@@ -62,7 +62,9 @@ final class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("viewWillDisappear")
         sceneView.session.pause()
+        timer?.invalidate()
     }
     
     
