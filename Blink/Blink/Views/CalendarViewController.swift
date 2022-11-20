@@ -11,6 +11,7 @@ import Charts
 
 final class CalendarViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lineChartView: LineChartView!
     
     private var ref: DatabaseReference!
@@ -18,6 +19,7 @@ final class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         setTitleLabel()
         ref = Database.database().reference()
+        initDateLabel()
         initChart()
         getData()
     }
@@ -60,6 +62,14 @@ extension CalendarViewController {
                 print("시각: \(timeValue), 카운트: \(cnt)")
             }
         }
+    }
+    
+    private func initDateLabel() {
+        // date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM월 dd일"
+        let date = dateFormatter.string(from: Date())
+        dateLabel.text = "\(date)의 기록입니다."
     }
     
     private func initChart() {
