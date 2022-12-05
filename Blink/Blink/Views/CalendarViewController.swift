@@ -100,7 +100,6 @@ extension CalendarViewController {
         // 차트 속성
         lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         lineChartView.doubleTapToZoomEnabled = false
-        lineChartView.leftAxis.axisMaximum = 20
         lineChartView.legend.enabled = false
         
         // 차트 모양
