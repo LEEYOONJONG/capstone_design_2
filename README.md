@@ -19,22 +19,23 @@
     - 사용자의 데이터를 개인화하여 관리하기 위해 애플의 Authentication Services 프레임워크를 이용한 Apple로 로그인 기능을 제공
     - 애플로 로그인이 성공할 경우, 애플로부터 사용자 식별에 이용되는 User Identifier를 넘겨받게 되며, 이를 애플 고유의 암호화된 데이터베이스인 Keychain에 저장하여 안전하게 관리
 
-![image](https://user-images.githubusercontent.com/29617557/205551159-400aaa9e-5358-4265-becb-94caf593c59d.jpeg)
+    ![image](https://user-images.githubusercontent.com/29617557/205551159-400aaa9e-5358-4265-becb-94caf593c59d.jpeg)
 
 - 눈 깜빡임 탐지 관련 화면 구성
     - 아이폰의 전면  TrueDepth Camera를 이용하여 사용자의 얼굴을 지속적으로 관찰하고 ARKit 프레임워크의 ARSession을 이용하여 눈을 분석
-![image](https://user-images.githubusercontent.com/29617557/205551249-b8025ae6-e7e4-4120-a9ab-bd7583d6aa7b.png)
+
+    ![image](https://user-images.githubusercontent.com/29617557/205551249-b8025ae6-e7e4-4120-a9ab-bd7583d6aa7b.png)
 
 - 경고 화면
     - 사용자가 눈을 12회 미만으로 깜빡일 때는 조심하라는 메시지가 담긴 Notification을 소리, 진동과 함께 전송
 
-![image](https://user-images.githubusercontent.com/29617557/205551290-980c53d2-e26d-4a90-88e7-71abc4ed0cd6.png)
+    ![image](https://user-images.githubusercontent.com/29617557/205551290-980c53d2-e26d-4a90-88e7-71abc4ed0cd6.png)
 
 - 암전 
 
-![image](https://user-images.githubusercontent.com/29617557/205551344-2da370ad-d0ef-41dd-a1de-10dc621c4f3c.png)
+    ![image](https://user-images.githubusercontent.com/29617557/205551344-2da370ad-d0ef-41dd-a1de-10dc621c4f3c.png)
 
 - 차트
     - Firebase Realtime Database를 이용하여 데이터베이스를 구성하여 분 당 눈 깜빡임 횟수를 실시간으로 저장하고, 차트 버튼을 누르면 이 데이터를 불러와 차트를 구성
-    
-![image](https://user-images.githubusercontent.com/29617557/205551370-6634f6dc-1563-4728-980a-b6be812c9284.png)
+
+    ![image](https://user-images.githubusercontent.com/29617557/205551370-6634f6dc-1563-4728-980a-b6be812c9284.png)
