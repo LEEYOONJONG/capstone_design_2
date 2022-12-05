@@ -87,10 +87,12 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
+        KeychainManager.shared.deleteToken(key: "loginToken")
+        
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
         } else {
-            print("네비게이션이 없네")
+            print("네비게이션이 없음")
             guard let authViewController = self.storyboard?.instantiateViewController(withIdentifier: "AuthViewController") as? AuthViewController else { return }
             changeRootViewController(authViewController)
         }
