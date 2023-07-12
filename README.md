@@ -24,12 +24,8 @@
 - 눈 깜빡임 탐지 관련 화면 구성
     - 아이폰의 전면  TrueDepth Camera를 이용하여 사용자의 얼굴을 지속적으로 관찰하고 ARKit 프레임워크의 ARSession을 이용하여 눈을 분석
 
-    ![image](https://user-images.githubusercontent.com/29617557/205551249-b8025ae6-e7e4-4120-a9ab-bd7583d6aa7b.png)
-
 - 경고 화면
     - 사용자가 눈을 12회 미만으로 깜빡일 때는 조심하라는 메시지가 담긴 Notification을 소리, 진동과 함께 전송
-
-    ![image](https://user-images.githubusercontent.com/29617557/205551290-980c53d2-e26d-4a90-88e7-71abc4ed0cd6.png)
 
 - 암전 
 
